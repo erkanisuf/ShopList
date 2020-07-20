@@ -1,0 +1,140 @@
+.theItems {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 450px;
+  max-width: 550px;
+  height: 100px;
+  background-color: white;
+  margin: 15px 0;
+  align-items: center;
+  border-radius: 2px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+  padding: 0 55px;
+  overflow: hidden;
+}
+
+.theItems p {
+  max-width: 300px;
+  border-bottom: 1px solid rgb(156, 204, 160);
+
+  padding-bottom: 3px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  font-size: 20px;
+}
+
+button {
+  display: inline-block;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  transition: all 200ms ease-in;
+  cursor: pointer;
+  background: rgb(64, 167, 73);
+  color: rgb(255, 255, 255);
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.19), 5px 6px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 2px;
+  padding: 10px;
+  margin: 2px;
+}
+
+button:hover {
+  background: rgb(83, 211, 94);
+}
+
+.smallInput {
+  outline: 0;
+  border: 0;
+  max-width: 300px;
+  border-bottom: 1px solid rgb(145, 146, 145);
+  padding: 5px;
+  margin: 5px;
+}
+
+.ShowList h1 {
+  color: white;
+  text-align: center;
+}
+
+.basich1 {
+  margin-top: 25px;
+  font-size: 17px;
+  color: white;
+  text-align: center;
+}
+
+.btndelete {
+  display: inline-block;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  transition: all 200ms ease-in;
+  cursor: pointer;
+  background: rgb(167, 64, 64);
+  color: rgb(255, 255, 255);
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.19), 5px 6px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 2px;
+  padding: 10px;
+  margin: 2px;
+}
+
+.btndelete:hover {
+  background: rgb(209, 81, 81);
+}
+
+.btnedit {
+  display: inline-block;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  transition: all 200ms ease-in;
+  cursor: pointer;
+  background: rgb(172, 145, 94);
+  color: rgb(255, 255, 255);
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.19), 5px 6px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 2px;
+  padding: 10px;
+  margin: 2px;
+  font-weight: bold;
+}
+
+.btnedit:hover {
+  background: rgb(253, 196, 72);
+}
+
+.btnundo {
+  display: inline-block;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  transition: all 200ms ease-in;
+  cursor: pointer;
+  background: rgb(255, 230, 0);
+  color: rgb(255, 255, 255);
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.19), 5px 6px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 2px;
+  padding: 10px;
+  margin: 2px;
+  font-weight: bold;
+}
+
+.btnundo:hover {
+  background: rgb(230, 227, 76);
+}

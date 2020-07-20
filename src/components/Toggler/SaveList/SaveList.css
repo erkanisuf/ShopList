@@ -1,0 +1,25 @@
+.saveList {
+  width: 40%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.saveList div:nth-child(1) {
+  order: 1;
+}
+.smallInput {
+  width: 250px;
+
+  background: #fff;
+  color: rgb(104, 104, 104);
+  font: inherit;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+  border: 0;
+  border-radius: 5px;
+  outline: 0;
+  padding: 10px 20px;
+  overflow: hidden;
+}
