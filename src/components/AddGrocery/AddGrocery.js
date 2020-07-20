@@ -1,45 +1,27 @@
 import React from "react";
 import "./addGrocery.css";
 
-function AddGrocery({ addItem, value, setValue, setGender }) {
+function AddGrocery({ addItem, value, handleInput, title, handleSelect }) {
   return (
     <div>
       <form onSubmit={addItem}>
+        <select value={title} onChange={(e) => handleSelect(e.target.value)}>
+          <option>Banana</option>
+          <option>yahr</option>
+          <option>anab</option>
+        </select>
         <input
           maxLength="20"
           className="bigInput"
           type="text"
           placeholder="Add Grocery"
           value={value}
-          onChange={(e) => setValue(e.target.value)}
+          onChange={(e) => handleInput(e.target.value)}
         />
         <button className="bigInputButton" onClick={addItem}>
           Add
         </button>
       </form>
-      <div>
-        <input
-          type="radio"
-          value="Male"
-          name="gender"
-          onChange={(e) => setGender(e.target.value)}
-        />{" "}
-        Male
-        <input
-          type="radio"
-          value="Female"
-          name="gender"
-          onChange={(e) => setGender(e.target.value)}
-        />{" "}
-        Female
-        <input
-          type="radio"
-          value="Other"
-          name="gender"
-          onChange={(e) => setGender(e.target.value)}
-        />{" "}
-        Other
-      </div>
     </div>
   );
 }

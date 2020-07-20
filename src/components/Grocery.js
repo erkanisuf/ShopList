@@ -13,26 +13,24 @@ function Grocery() {
       completed: true,
       editMode: false,
       value: "kur",
-      gender: "kur",
+      title: "gar",
     },
     {
       text: "putka",
       completed: true,
       editMode: false,
       value: "putka",
-      gender: "puti",
+      title: "hahha.",
     },
     {
       text: "mandarina",
       completed: false,
       editMode: true,
       value: "mandarina",
-      gender: "eba",
+      title: "gege.",
     },
   ]);
-  const [value, setValue] = useState("");
-  const [gender, setGender] = useState("");
-  const [smallgender, setSmallGender] = useState("");
+  const [value, setValue] = useState({ text: "", title: "banana" });
 
   const [thefullDate, setfullDate] = useState([
     {
@@ -48,22 +46,53 @@ function Grocery() {
     transition: false,
   });
 
+  const handleSelect = (e) => {
+    const items = {
+      text: value.text,
+      title: e,
+    };
+
+    setValue(items);
+    console.log(items);
+  };
+
+  const handleInput = (e) => {
+    const items = {
+      text: e,
+      title: value.title,
+    };
+
+    setValue(items);
+    console.log(items);
+  };
+
+  const changeSmallSelect = (e, index) => {
+    const changeItemer = [...groceryList];
+
+    changeItemer[index].title = e;
+
+    setGroceryList(changeItemer);
+    console.log(changeItemer[index]);
+  };
+
   const addAll = (e) => {
     e.preventDefault();
-    if (!value) return alert("Please Fill the field!");
-    if (!gender) return alert("Please Fill the Radio field!");
+    if (!value.text) return alert("Please Fill the field!");
+
     const items = [
       ...groceryList,
       {
-        text: value,
+        text: value.text,
         completed: false,
         editMode: false,
-        value: value,
-        gender: gender,
+        value: value.text,
+        title: value.title,
+        titleValue: value.title,
       },
     ];
     setGroceryList(items);
-    setValue("");
+    setValue({ text: "", title: "Banana" });
+    console.log(items);
   };
 
   const deleteItem = (index) => {
@@ -91,16 +120,11 @@ function Grocery() {
     setGroceryList(changeItemer);
   };
 
-  const changeSmallRadio = (e, index) => {
-    console.log(e);
-    setSmallGender(e);
-    console.log(smallgender);
-  };
-  console.log(smallgender);
   const thisisCancel = (index) => {
     const changeItemer = [...groceryList];
     changeItemer[index].editMode = !changeItemer[index].editMode;
     changeItemer[index].value = changeItemer[index].text;
+    changeItemer[index].title = changeItemer[index].titleValue;
     setGroceryList(changeItemer);
   };
 
@@ -108,7 +132,8 @@ function Grocery() {
     const changeItemer = [...groceryList];
     if (!changeItemer[index].value) return alert("Please Fill the field!");
     changeItemer[index].text = changeItemer[index].value;
-    changeItemer[index].gender = smallgender;
+
+    changeItemer[index].titleValue = changeItemer[index].title;
     changeItemer[index].editMode = !changeItemer[index].editMode;
     setGroceryList(changeItemer);
   };
@@ -117,12 +142,14 @@ function Grocery() {
     if (!groceryList.length) return alert("Please Add Some Items");
     if (saverValue === "") return alert("Please Write name");
     let date = new Date();
+    const gros = groceryList.slice();
+    console.log(gros);
     const dates = [
       ...thefullDate,
-      { name: saverValue, date: date.toDateString(), items: groceryList },
+      { name: saverValue, date: date.toDateString(), items: gros },
     ];
     setfullDate(dates);
-
+    console.log(dates);
     setsaverValue("");
 
     setsavesmallText({
@@ -200,10 +227,11 @@ function Grocery() {
       }
     >
       <AddGrocery
-        value={value}
-        setValue={setValue}
+        value={value.text}
+        handleInput={handleInput}
         addItem={addAll}
-        setGender={setGender}
+        handleSelect={handleSelect}
+        title={value.title}
       />
 
       <ShowList
@@ -214,7 +242,7 @@ function Grocery() {
         changeSmallText={changeSmallText}
         thisisCancel={thisisCancel}
         submitSmallText={submitSmallText}
-        setGender={changeSmallRadio}
+        changeSmallSelect={changeSmallSelect}
       />
       <SaveList
         saverValue={saverValue}

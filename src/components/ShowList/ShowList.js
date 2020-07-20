@@ -11,7 +11,8 @@ function ShowList({
   changeSmallText,
   thisisCancel,
   submitSmallText,
-  setGender,
+  changeSmallSelect,
+  titleValue,
 }) {
   if (groceries.length === 0)
     return <h1 className="basich1">Your list is empty...</h1>;
@@ -31,29 +32,15 @@ function ShowList({
                 onChange={(e) => changeSmallText(e.target.value, index)}
                 autoFocus
               />
-              <div>
-                <input
-                  type="radio"
-                  value="male"
-                  name="gender"
-                  onChange={(e) => setGender(e.target.value, index)}
-                />
-                Male
-                <input
-                  type="radio"
-                  value="female"
-                  name="gender"
-                  onChange={(e) => setGender(e.target.value, index)}
-                />
-                Female
-                <input
-                  type="radio"
-                  value="other"
-                  name="gender"
-                  onChange={(e) => setGender(e.target.value, index)}
-                />
-                Other
-              </div>
+              <select
+                value={grocy.title}
+                onChange={(e) => changeSmallSelect(e.target.value, index)}
+              >
+                <option>Banana</option>
+                <option>yahr</option>
+                <option>anab</option>
+              </select>
+
               <div>
                 <button
                   className="fa fa-times-circle btndelete"
@@ -80,7 +67,7 @@ function ShowList({
                   {grocy.text}
                 </p>
                 <div style={{ textDecoration: "none!important" }}>
-                  {grocy.gender}
+                  {grocy.title}
                 </div>
 
                 <div>

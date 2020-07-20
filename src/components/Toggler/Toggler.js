@@ -58,7 +58,7 @@ function Toggler({
               return (
                 <AccordionDetails key={index}>
                   {zac.text}
-                  <div style={{ marginLeft: "10px" }}>{zac.gender}</div>
+                  <div style={{ marginLeft: "10px" }}>{zac.titleValue}</div>
                 </AccordionDetails>
               );
             })}
